@@ -1,5 +1,10 @@
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -13,15 +18,123 @@
   }
 }
 
+
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
+  position: relative;
+}
+
+.title {
+  font-family: 'Orbitron', 'Montserrat', sans-serif;
+  font-size: 3rem;
+  margin-top: 2rem;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px #ff9800, 0 0 40px #fff700;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.tab {
+  background: linear-gradient(90deg, #ff9800 0%, #fff700 100%);
+  border: none;
+  color: #222;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 10px rgba(255, 152, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(255, 152, 0, 0.5);
+}
+
+.intro {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff9800;
+}
+
+/* Star background */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Generate stars using box-shadow on a pseudo element */
+.App::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow:
+    20vw 10vh 1px 1px #fff,
+    40vw 80vh 1px 1px #fff,
+    60vw 30vh 1px 1px #fff,
+    80vw 60vh 1px 1px #fff,
+    10vw 50vh 1px 1px #fff,
+    70vw 20vh 1px 1px #fff,
+    30vw 70vh 1px 1px #fff,
+    50vw 40vh 1px 1px #fff,
+    90vw 90vh 1px 1px #fff,
+    15vw 85vh 1px 1px #fff;
+}
+
+/* House music equalizer animation */
+.music-visual {
+  margin-top: 2rem;
+  z-index: 2;
+}
+
+.equalizer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  height: 2.5rem;
+}
+
+.bar {
+  width: 0.5rem;
+  background: linear-gradient(180deg, #fff700 0%, #ff9800 100%);
+  border-radius: 0.25rem;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.bar:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.bar:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes bounce {
+  0%, 100% { height: 1rem; }
+  50% { height: 2.5rem; }
 }
 
 .App-link {
